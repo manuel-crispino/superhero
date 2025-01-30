@@ -1,0 +1,101 @@
+@import url('https://fonts.googleapis.com/css2?family=Bangers&display=swap');
+
+:root {
+  --primary-red: #da5147e9;
+  --dark-red: #822720;
+  --black: #030104;
+  --light-blue: #abadbf;
+  --strong-blue: #0647a9;
+  --deep-blue: #021656de;
+}
+
+body {
+  background-image: url('./image/hero.jpg');
+  background-size: cover; 
+  background-position: center; 
+  background-repeat: no-repeat; 
+  color: white;
+  font-family: "Bangers", serif;
+  font-weight: 400;
+  letter-spacing: 2px;
+  font-style: normal;
+  text-align: center;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.hero-div {
+  background-image: url('./image/spider.jpg');
+  background-size: cover; 
+  background-position: center; 
+  background-repeat: no-repeat; 
+  padding: 10%;
+  min-height: 30rem;
+  max-height: fit-content;
+  min-width: 30rem;
+  max-width: fit-content;
+  border: solid 1px white;
+  border-radius: 5%;
+  box-shadow: 0px 0px 30px 20px rgba(0, 221, 255, 0.755);  
+}
+
+.hero-ul {
+  list-style: none;
+  padding: 10%;
+}
+
+.hero-ul li {
+  padding: 5%;
+}
+
+input {
+  font-family: "Bangers", serif;
+  font-weight: 400;
+  letter-spacing: 2px;
+  border: 1px yellow solid;
+  height: 2rem;
+  min-width: 16rem;
+  font-size: x-large;
+  text-align: center;
+}
+
+.hero-btn {
+  font-family: "Bangers", serif;
+  font-weight: 400;
+  letter-spacing: 2px;
+  height: 7rem;
+  width: 7rem;
+  cursor: pointer;
+  border: rgb(252, 74, 74) 2px solid;
+  border-radius: 100%;
+  background-color: rgba(211, 230, 252, 0.25);
+  box-shadow: 0px 0px 30px 5px rgba(0, 221, 255, 0.755);  
+  font-size: x-large;
+  color: rgb(255, 253, 253);
+}
+
+.hero-btn:hover {
+  cursor: pointer;
+  border: rgb(240, 252, 74) 2px solid;
+  background-color: rgba(254, 254, 254, 0.446);
+  box-shadow: 0px 0px 30px 5px rgba(214, 249, 255, 0.755);  
+}
+
+span {
+  font-size: x-large;
+}
+
+.error {
+  background-color: #ff7b71dc;
+  color: white;
+  padding: 2%;
+  height: 5rem;
+  width: 10rem;
+  padding: 10%;
+  margin: 2% 15%;
+  border: solid 1px white;
+  border-radius: 5%;
+  box-shadow: 0px 0px 30px 10px rgba(255, 0, 0, 0.755);  
+}
