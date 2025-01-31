@@ -76,7 +76,6 @@ export default function HeroForm() {
     }));
   };
 
-
   return (
     <div className="hero-div">
       <h1>Super Hero Generator!</h1>

@@ -46,13 +46,16 @@ export default function HeroList(props:Props) {
     return <p>Loading heroes...</p>; // Mostra il messaggio di caricamento
   }
 
+  // Sort the list of heroes in descending order based on humilityScore
+  const sortedList = heroesList.sort((a, b) => b.humilityScore - a.humilityScore);
+
   return (
     <div>
       <h1>Superheroes List</h1>
-      {error && <p>{error}</p>} {/* Mostra un messaggio di errore se presente */}
+      {error && <p>{error}</p>} {/* show error message if there is  */}
       <ol className="hero-list">
         {heroesList.length > 0 ? (
-          heroesList.map((hero) => (
+          sortedList.map((hero) => (
             <li key={hero.id}>
              <p className="hero-list-text"> {hero.name} - {hero.superpower} (Humility: {hero.humilityScore})</p>
             </li>
