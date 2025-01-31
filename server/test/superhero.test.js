@@ -20,3 +20,34 @@ describe('GET /superheroes', () => {
 
   });
 });
+
+describe('POST /superheroes', () => {
+  it('should return 400 if hero data is incomplete', async () => {
+    const incompleteHero = {
+      name: 'Batman', // missing superpower and humilityScore
+    };
+
+    const response = await request(app).post('/superheroes').send(incompleteHero);
+
+    expect(response.status).toBe(400);
+    expect(response.body.message).toBe(
+      'Hero data is missing or incomplete. Please provide name, superpower, and humilityScore.'
+    );
+  });
+
+  it('should return 201 and the new hero if the data is complete', async () => {
+    const newHero = {
+      name: 'Superman',
+      superpower: 'Flying',
+      humilityScore: 10,
+    };
+
+    const response = await request(app).post('/superheroes').send(newHero);
+
+    expect(response.status).toBe(201);
+    expect(response.body).toHaveProperty('id');
+    expect(response.body.name).toBe(newHero.name);
+    expect(response.body.superpower).toBe(newHero.superpower);
+    expect(response.body.humilityScore).toBe(newHero.humilityScore);
+  });
+});

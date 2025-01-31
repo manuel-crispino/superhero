@@ -12,15 +12,15 @@ interface Props{
 }
 
 export default function HeroList(props:Props) {
-  const [heroesList, setHeroesList] = useState<Hero[]>([]); // Array di eroi
-  const [error, setError] = useState<string>(""); // Stato per gli errori
-  const [isLoading, setIsLoading] = useState<boolean>(true); // Stato per il caricamento
+  const [heroesList, setHeroesList] = useState<Hero[]>([]); // Heroes Array
+  const [error, setError] = useState<string>(""); // Error state 
+  const [isLoading, setIsLoading] = useState<boolean>(true); // loading state
 
 
   useEffect(() => {
     const fetchHeroes = async () => {
       try {
-        // Chiamata al server
+        // call server
         const response = await fetch("http://localhost:3000/superheroes");
 
         if (!response.ok) {
@@ -30,20 +30,20 @@ export default function HeroList(props:Props) {
         const data = await response.json();
         console.log("Fetched heroes:", data);
 
-        setHeroesList(data); // Imposta la lista degli eroi
-        setIsLoading(false); // Dati caricati, termina il caricamento
+        setHeroesList(data); // set heroes list
+        setIsLoading(false); // if data are ready stop loading
       } catch (error: unknown) {
         setError("Error fetching data");
-        setIsLoading(false); // Se c'è un errore, termina comunque il caricamento
+        setIsLoading(false); // if errors stop loading
         console.error("Error fetching data:", error);
       }
     };
 
-    fetchHeroes(); // Chiamata alla funzione di fetch
-  }, [props.count]); // Esegui una sola volta al montaggio del componente
+    fetchHeroes(); // call fetch 
+  }, [props.count]); // update each count = new hero 
 
   if (isLoading) {
-    return <p>Loading heroes...</p>; // Mostra il messaggio di caricamento
+    return <p>Loading heroes...</p>; //
   }
 
   // Sort the list of heroes in descending order based on humilityScore
