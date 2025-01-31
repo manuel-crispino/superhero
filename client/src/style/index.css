@@ -20,7 +20,7 @@ body {
   letter-spacing: 2px;
   font-style: normal;
   text-align: center;
-  height: 100vh;
+  height: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
