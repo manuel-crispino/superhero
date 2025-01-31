@@ -18,6 +18,8 @@ export default function HeroForm() {
 
   // State for handling error messages
   const [error, setError] = React.useState<string>("");
+  const [updateList, setUpdateList] = React.useState<number>(0);// update list in heroList component
+
 
   // State for handling error messages
   const [heroesListReady, setHeroesListReady] = React.useState<boolean>(false);
@@ -56,6 +58,7 @@ export default function HeroForm() {
           .then((data) => {
             console.log("Hero submitted:", data); // Log the response data
             setHeroesListReady(true);
+            setUpdateList(updateList+1);
           })
           .catch((error) => {
             console.error("Error submitting hero:", error); // Handle error if any
@@ -72,6 +75,7 @@ export default function HeroForm() {
       [field]: field === "humilityScore" ? (value === "" ? "" : Number(value)) : value, // Handle humilityScore conversion to number
     }));
   };
+
 
   return (
     <div className="hero-div">
@@ -120,7 +124,7 @@ export default function HeroForm() {
         </ul>
       </form>
 
-      {heroesListReady?<HeroList/>:("")}
+      {heroesListReady?<HeroList count={updateList}/>:("")}
     </div>
   );
 }

@@ -1,3 +1,4 @@
+import Footer from "./components/footer"
 import Hero from "./components/hero"
 
 function App() {
@@ -6,6 +7,7 @@ function App() {
     <>
       <div>
       <Hero/>
+      <Footer/>
       </div>
     </>
   )
